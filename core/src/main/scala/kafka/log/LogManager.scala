@@ -471,7 +471,7 @@ class LogManager(val logDirs: Array[File],
   def logsByTopicPartition: Map[TopicAndPartition, Log] = logs.toMap
 
   /**
-   * Map of log dir to logs by topic and partitions in that dir
+   * Map of log dir to logs by topic and partitions in that directory
    */
   private def logsByDir = {
     this.logsByTopicPartition.groupBy {
