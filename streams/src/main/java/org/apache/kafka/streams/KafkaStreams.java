@@ -329,8 +329,7 @@ public class KafkaStreams {
      * @param key               Key to use to for partition
      * @param keySerializer     Serializer for the key
      * @param <K>               key type
-     * @return  The {@link StreamsMetadata} for the storeName and key or {@link StreamsMetadata#NOT_AVAILABLE}
-     * if streams is (re-)initializing
+     * @return  The {@link StreamsMetadata} for the storeName and key
      */
     public <K> StreamsMetadata metadataForKey(final String storeName,
                                               final K key,
@@ -351,8 +350,7 @@ public class KafkaStreams {
      * @param key               Key to use to for partition
      * @param partitioner       Partitioner for the store
      * @param <K>               key type
-     * @return  The {@link StreamsMetadata} for the storeName and key or {@link StreamsMetadata#NOT_AVAILABLE}
-     * if streams is (re-)initializing
+     * @return  The {@link StreamsMetadata} for the storeName and key
      */
     public <K> StreamsMetadata metadataForKey(final String storeName,
                                               final K key,
@@ -370,8 +368,6 @@ public class KafkaStreams {
      * @param queryableStoreType    accept only stores that are accepted by {@link QueryableStoreType#accepts(StateStore)}
      * @param <T>                   return type
      * @return  A facade wrapping the {@link org.apache.kafka.streams.processor.StateStore} instances
-     * @throws org.apache.kafka.streams.errors.InvalidStateStoreException if the streams are (re-)initializing or
-     * a store with storeName and queryableStoreType doesnt' exist.
      */
     public <T> T store(final String storeName, final QueryableStoreType<T> queryableStoreType) {
         validateIsRunning();

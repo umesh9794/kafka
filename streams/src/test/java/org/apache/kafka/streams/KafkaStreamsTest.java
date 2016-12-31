@@ -18,7 +18,7 @@
 package org.apache.kafka.streams;
 
 import org.apache.kafka.common.serialization.Serdes;
-import org.apache.kafka.streams.integration.utils.EmbeddedKafkaCluster;
+import org.apache.kafka.streams.integration.utils.EmbeddedSingleNodeKafkaCluster;
 import org.apache.kafka.streams.kstream.KStreamBuilder;
 import org.apache.kafka.streams.processor.StreamPartitioner;
 import org.apache.kafka.test.MockMetricsReporter;
@@ -35,11 +35,10 @@ import static org.junit.Assert.assertTrue;
 
 public class KafkaStreamsTest {
 
-    private static final int NUM_BROKERS = 1;
     // We need this to avoid the KafkaConsumer hanging on poll (this may occur if the test doesn't complete
     // quick enough)
     @ClassRule
-    public static final EmbeddedKafkaCluster CLUSTER = new EmbeddedKafkaCluster(NUM_BROKERS);
+    public static final EmbeddedSingleNodeKafkaCluster CLUSTER = new EmbeddedSingleNodeKafkaCluster();
 
     @Test
     public void testStartAndClose() throws Exception {
